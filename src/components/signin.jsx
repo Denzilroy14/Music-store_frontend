@@ -21,7 +21,7 @@ export default function Signin(){
         data.append('password',form.password);
         data.append('confirm_password',form.confirm_password);
         try{
-            await axios.post('https://musicalstorebackend.pythonanywhere.com /signin',data);
+            await axios.post('https://musicalstorebackend.pythonanywhere.com/signin',data);
             setForm({
                 username:'',
                 email:'',
