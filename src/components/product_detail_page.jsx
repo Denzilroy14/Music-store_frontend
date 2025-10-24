@@ -9,7 +9,7 @@ export default function ProductDetail(){
   const navigate_login=useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/view_product_details/${prodid}`)
+    axios.get(`https://musicalstorebackend.pythonanywhere.com /view_product_details/${prodid}`)
       .then(response => {
         setProduct(response.data);
         console.log(response.data)
@@ -19,7 +19,7 @@ export default function ProductDetail(){
 
   if (!product) return <div>Loading...</div>;
   const addToCart=(prodid)=>{
-        axios.post(`http://localhost:5000/add_to_cart/${prodid}`,{
+        axios.post(`https://musicalstorebackend.pythonanywhere.com /add_to_cart/${prodid}`,{
                 'quantity':1
             },{withCredentials:true})
             .then(res=>{
