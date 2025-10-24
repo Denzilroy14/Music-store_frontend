@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 export default function AdminPanel(){
     const [products,setProducts]=useState([]);
     useEffect(()=>{
-        axios.get('http://localhost:5000/view_products')
+        axios.get('https://musicalstorebackend.pythonanywhere.com/view_products')
         .then(res=>setProducts(res.data))
         .catch(err=>console.error(err));
     },[]);
@@ -39,7 +39,7 @@ export default function AdminPanel(){
         data.append('prod_desc',form.prod_desc);
         data.append('prod_image',form.prod_image);
         try{
-            await axios.post('http://localhost:5000/add_product',data);
+            await axios.post('https://musicalstorebackend.pythonanywhere.com/add_product',data);
             setForm({
                 prod_name:'',
                 prod_amt:'',
@@ -126,7 +126,7 @@ export default function AdminPanel(){
             <div className='product-list'>
                 <h1>Added products to list</h1>
                 <div>
-                    <form action='http://localhost:5000/delete_products' method='POST'>
+                    <form action='https://musicalstorebackend.pythonanywhere.com/delete_products' method='POST'>
                     {Array.isArray(products)&&products.length===0?(
                         <p>No products</p>
                     ):(
