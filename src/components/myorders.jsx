@@ -5,7 +5,7 @@ export default function MyOrders(){
     const [feedbacks,setFeedback]=useState({});
     const [message,setMessage]=useState("");
     useEffect(()=>{
-        axios.get('http://localhost:5000/my_orders',{withCredentials:true})
+        axios.get('https://musicalstorebackend.pythonanywhere.com/my_orders',{withCredentials:true})
         .then((res)=>{
             if (Array.isArray(res.data)){
                 setorderedProducts(res.data);
@@ -32,7 +32,7 @@ export default function MyOrders(){
 
     const handleFeedback=(prodid)=>{
       const feedback=feedbacks[prodid];
-      axios.post(`http://localhost:5000/give_feedback`,{
+      axios.post(`https://musicalstorebackend.pythonanywhere.com/give_feedback`,{
           prod_id:prodid,
           comment:feedback.comment,
           rating:feedback.rating,
