@@ -23,12 +23,12 @@ export default function HomePage(){
     }
     const [products,setProducts]=useState([]);
     useEffect(()=>{
-        axios.get('https://musicalstorebackend.pythonanywhere.com /home')
+        axios.get('https://musicalstorebackend.pythonanywhere.com/home')
         .then(res=>setProducts(res.data))
         .catch(err=>console.error(err));
     },[]);
     const addToCart=(prodid)=>{
-        axios.post(`https://musicalstorebackend.pythonanywhere.com /add_to_cart/${prodid}`,{
+        axios.post(`https://musicalstorebackend.pythonanywhere.com/add_to_cart/${prodid}`,{
                 'quantity':1
             },{withCredentials:true})
             .then(res=>{
