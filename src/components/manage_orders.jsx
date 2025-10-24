@@ -4,7 +4,7 @@ export default function ManageOrder(){
     const [orders,setOrders]=useState([]);
     const[message,setMessage]=useState("");
     useEffect(()=>{
-        axios.get('http://localhost:5000/manage_orders')
+        axios.get('https://musicalstorebackend.pythonanywhere.com/manage_orders')
         .then((res)=>{
             if(Array.isArray(res.data)){
                 setOrders(res.data);
@@ -21,7 +21,7 @@ export default function ManageOrder(){
 
     const toggleStatus=(user_id,current_status,prod_id)=>{
       const new_status=current_status===0?1:0;
-      axios.post('http://localhost:5000/update_order_status',{
+      axios.post('https://musicalstorebackend.pythonanywhere.com/update_order_status',{
         user_id:user_id,
         prod_id:prod_id,
         new_status:new_status,
