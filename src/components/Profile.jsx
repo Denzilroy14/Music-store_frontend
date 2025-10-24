@@ -18,7 +18,7 @@ export default function ProfilePage(){
         navigate_home('/my_orders');
     }
     useEffect(()=>{
-        axios.get('http://localhost:5000/profile',{
+        axios.get('https://musicalstorebackend.pythonanywhere.com/profile',{
             withCredentials:true
         })
         .then((res)=>{
@@ -61,7 +61,7 @@ export default function ProfilePage(){
             return;
         }
         else{
-        axios.post(`http://localhost:5000/billnow/${product.product_id}/${product.user_id}/${qty}`,{
+        axios.post(`https://musicalstorebackend.pythonanywhere.com/billnow/${product.product_id}/${product.user_id}/${qty}`,{
             contact:contactinfo.contact,
             address:contactinfo.address,
             payment_method:contactinfo.payment_method
